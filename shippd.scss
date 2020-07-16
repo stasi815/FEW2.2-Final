@@ -1,0 +1,475 @@
+
+:root {
+  --color-background: white;
+  --color-foreground: rgb(57, 145, 254);
+  --color-dark: black;
+  --color-light: rgb(242, 242, 242);
+  --color-md-light: rgb(223, 223, 223);
+  --color-md-dark: rgb(68, 68, 68);
+  --color-primary: var(--color-foreground);
+  --color-secondary: grey;
+  --color-info: rgb(81, 198, 237);
+  --color-success: #6bc253;
+  --color-danger: #f85353;
+  --color-warning: rgb(255, 238, 0);
+  --color-lightest: rgb(245, 245, 245);
+  --color-nav-footer: #1c3535;
+  --border-style: 1px solid black;
+}
+
+body {
+  --font-family: "Avenir", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-family: var(--font-family);
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  background-color: #daebeb;
+  color: #1c3535;
+  font-size: 18px;
+  margin: 0;
+}
+
+body > div.container {
+  padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+pre {
+  background-color: rgba(223, 223, 223, 0.584);
+  display: flex;
+  justify-content: flex-start;
+  padding: 1em;
+}
+
+/*--------------------- Headings -------------------*/
+h1 {
+  font-size: 2.4em;
+  font-family: "Optima", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", serif;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 2.1em;
+  font-family: "Optima", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", serif;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-size: 1.8em;
+  font-family: "Optima", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", serif;
+  letter-spacing: 1px;
+}
+
+h4 {
+  font-size: 1.5em;
+  font-family: "Optima", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", serif;
+  letter-spacing: 1px;
+}
+
+h5 {
+  font-size: 1.2em;
+  font-family: "Optima", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", serif;
+  letter-spacing: 1px;
+}
+
+h6 {
+  font-size: 0.9em;
+  font-family: "Optima", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", serif;
+  letter-spacing: 1px;
+}
+
+/*--------------------- Paragraph Styles -------------------*/
+.paragraphs {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+/*--------------------- Selected Text -------------------*/
+.selection-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.selections::selection {
+  color: white;
+  background: var(--color-info);
+}
+
+/*--------------------- Code -------------------*/
+
+code {
+  font-family: "Courier New", Courier, monospace;
+}
+
+/*--------------------- Buttons -------------------*/
+
+button {
+  --bg-color: white;
+  --fg-color: var(--color-foreground);
+  --weight: bold;
+  font-family: "Avenir", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+  font-weight: var(--weight);
+  border-radius: 8px;
+  padding: 0.35em 0.65em;
+  border: 1px solid;
+}
+
+button:hover {
+  --bg-color: var(--color-foreground);
+  --fg-color: white;
+}
+
+.delete-btn {
+  --bg-color: white;
+  --fg-color: var(--color-danger);
+}
+
+.delete-btn:hover {
+  --bg-color: var(--color-danger);
+  --fg-color: white;
+}
+
+.go-btn {
+  --bg-color: white;
+  --fg-color: var(--color-success);
+}
+
+.go-btn:hover {
+  --bg-color: var(--color-success);
+  --fg-color: white;
+}
+
+button.btn-primary {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
+button.btn-secondary {
+  --bg-color: var(--color-secondary);
+  --fg-color: white;
+}
+
+.btn-secondary:hover {
+  --bg-color: white;
+  --fg-color: var(--color-secondary);
+}
+
+button.btn-success {
+  --bg-color: var(--color-success);
+  --fg-color: white;
+}
+
+.btn-success:hover {
+  --bg-color: white;
+  --fg-color: var(--color-success);
+}
+
+button.btn-danger {
+  --bg-color: var(--color-danger);
+  --fg-color: white;
+}
+
+.btn-danger:hover {
+  --bg-color: white;
+  --fg-color: var(--color-danger);
+}
+
+button.btn-warning {
+  --bg-color: var(--color-warning);
+  --fg-color: var(--color-dark);
+}
+
+.btn-warning:hover {
+  --bg-color: var(--color-dark);
+  --fg-color: var(--color-warning);
+}
+
+button.btn-info {
+  --bg-color: white;
+  --fg-color: var(--color-info);
+}
+
+.btn-info:hover {
+  --bg-color: var(--color-info);
+  --fg-color: white;
+}
+
+button.btn-light {
+  --bg-color: var(--color-light);
+  --fg-color: var(--color-dark);
+}
+
+.btn-light:hover {
+  --bg-color: var(--color-dark);
+  --fg-color: var(--color-light);
+}
+
+button.btn-dark {
+  --bg-color: var(--color-dark);
+  --fg-color: white;
+}
+
+.btn-dark:hover {
+  --bg-color: var(--color-light);
+  --fg-color: var(--color-dark);
+}
+
+button.btn-link {
+  --bg-color: white;
+  --fg-color: rgb(1, 99, 131);
+}
+
+.btn-link:hover {
+  --bg-color: var(--color-info);
+  color: white;
+}
+
+button.btn-small {
+  padding: 3px 12px;
+}
+
+button.btn-medium {
+  padding: 0.35em 0.65em;
+}
+
+button.btn-big {
+  padding: 8px 24px;
+}
+
+/*--------------------- Links -------------------*/
+a {
+  text-decoration: underline;
+  color: #51c6ed;
+}
+
+a:visited {
+  color: #7d0183;
+}
+
+a:hover {
+  color: #51c6ed;
+}
+
+/*--------------------- Forms -------------------*/
+.forms-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+textarea {
+  border: 2px solid #1c3535;
+  padding: 1em;
+  font-size: 1em;
+  border-radius: 15px;
+  outline: none !important;
+  transition: 400ms;
+  box-shadow: none;
+  font-family: var(--font-family);
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus,
+textarea:focus {
+  border-color: tomato;
+}
+
+input[type=submit] {
+  align-self: flex-end;
+}
+
+label {
+  margin: 0.5em;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.comment-text {
+  margin-top: 1em;
+}
+
+/*--------------------- Navbar -------------------*/
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-wrap: wrap;
+  background-color: var(--color-nav-footer);
+  color: white;
+  padding: 1em;
+  position: sticky;
+}
+
+.navbar > ul {
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+  list-style: none;
+}
+
+.navbar > ul > li {
+  padding: 0.25em;
+}
+
+.navbar > ul > li > a {
+  text-decoration: underline;
+  color: white;
+}
+
+.navbar > ul > li > a:hover {
+  color: var(--color-info);
+}
+
+.navbar > ul > li > h1.title {
+  margin: 0 0.5em 0 0;
+}
+
+.navbar-two {
+  justify-content: space-between;
+}
+
+.navbar-three {
+  justify-content: space-evenly;
+}
+
+/*--------------------- Footer -------------------*/
+div.footer {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  background-color: var(--color-nav-footer);
+  margin: 0;
+  color: white;
+  padding: 1em;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+div.footer > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex: 1;
+}
+
+div.footer > ul > li {
+  margin: 0.5em;
+}
+
+div.footer > ul > li > h3 {
+  margin: 0;
+}
+
+div.footer > ul > li > a {
+  padding-top: 1em 1em 0 1em;
+  color: white;
+}
+
+div.footer > ul > li > a:hover {
+  color: var(--color-info);
+}
+
+/*--------------------- Components -------------------*/
+.components {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+/*--------------------- Card -------------------*/
+.card-style {
+  margin-bottom: 3em;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.card-header {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-md-light);
+  border-top: var(--border-style);
+  border-right: var(--border-style);
+  border-bottom: none;
+  border-left: var(--border-style);
+  padding: 0.5em 1em;
+  margin: 0;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-md-light);
+  border-top: none;
+  border-right: var(--border-style);
+  border-bottom: var(--border-style);
+  border-left: var(--border-style);
+  padding: 0.5em 1em;
+  margin: 0;
+}
+
+.card-img-top {
+  height: 180px;
+  width: 286px;
+  background-color: #8a8a8a;
+  color: white;
+  border-top: var(--border-style);
+  border-right: var(--border-style);
+  border-bottom: none;
+  border-left: var(--border-style);
+}
+
+.card-body {
+  display: flex;
+  padding: 0.5em 0.25em;
+  border-top: none;
+  border-right: var(--border-style);
+  border-bottom: var(--border-style);
+  border-left: var(--border-style);
+}
+
+.card-body > h5.card-title {
+  margin: 0;
+}
+
+/*--------------------- Swatches -------------------*/
+
+@for $i from 0 through 100 {
+  $hue: $i * 137.508;
+  .swatch-#{$i} {
+    background-color: hsl($hue, 75%, 50%);
+  }
+}
+
+
+/*# sourceMappingURL=shippd.css.map */

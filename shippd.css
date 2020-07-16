@@ -1,0 +1,869 @@
+:root {
+  --color-background: white;
+  --color-foreground: rgb(57, 145, 254);
+  --color-dark: black;
+  --color-light: rgb(242, 242, 242);
+  --color-md-light: rgb(223, 223, 223);
+  --color-md-dark: rgb(68, 68, 68);
+  --color-primary: var(--color-foreground);
+  --color-secondary: grey;
+  --color-info: rgb(81, 198, 237);
+  --color-success: #6bc253;
+  --color-danger: #f85353;
+  --color-warning: rgb(255, 238, 0);
+  --color-lightest: rgb(245, 245, 245);
+  --color-nav-footer: #1c3535;
+  --border-style: 1px solid black;
+}
+
+body {
+  --font-family: "Avenir", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-family: var(--font-family);
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  background-color: #daebeb;
+  color: #1c3535;
+  font-size: 18px;
+  margin: 0;
+}
+
+body > div.container {
+  padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+pre {
+  background-color: rgba(223, 223, 223, 0.584);
+  display: flex;
+  justify-content: flex-start;
+  padding: 1em;
+}
+
+/*--------------------- Headings -------------------*/
+h1 {
+  font-size: 2.4em;
+  font-family: "Optima", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", serif;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 2.1em;
+  font-family: "Optima", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", serif;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-size: 1.8em;
+  font-family: "Optima", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", serif;
+  letter-spacing: 1px;
+}
+
+h4 {
+  font-size: 1.5em;
+  font-family: "Optima", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", serif;
+  letter-spacing: 1px;
+}
+
+h5 {
+  font-size: 1.2em;
+  font-family: "Optima", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", serif;
+  letter-spacing: 1px;
+}
+
+h6 {
+  font-size: 0.9em;
+  font-family: "Optima", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", serif;
+  letter-spacing: 1px;
+}
+
+/*--------------------- Paragraph Styles -------------------*/
+.paragraphs {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+/*--------------------- Selected Text -------------------*/
+.selection-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.selections::selection {
+  color: white;
+  background: var(--color-info);
+}
+
+/*--------------------- Code -------------------*/
+code {
+  font-family: "Courier New", Courier, monospace;
+}
+
+/*--------------------- Buttons -------------------*/
+button {
+  --bg-color: white;
+  --fg-color: var(--color-foreground);
+  --weight: bold;
+  font-family: "Avenir", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+  font-weight: var(--weight);
+  border-radius: 8px;
+  padding: 0.35em 0.65em;
+  border: 1px solid;
+}
+
+button:hover {
+  --bg-color: var(--color-foreground);
+  --fg-color: white;
+}
+
+.delete-btn {
+  --bg-color: white;
+  --fg-color: var(--color-danger);
+}
+
+.delete-btn:hover {
+  --bg-color: var(--color-danger);
+  --fg-color: white;
+}
+
+.go-btn {
+  --bg-color: white;
+  --fg-color: var(--color-success);
+}
+
+.go-btn:hover {
+  --bg-color: var(--color-success);
+  --fg-color: white;
+}
+
+button.btn-primary {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
+button.btn-secondary {
+  --bg-color: var(--color-secondary);
+  --fg-color: white;
+}
+
+.btn-secondary:hover {
+  --bg-color: white;
+  --fg-color: var(--color-secondary);
+}
+
+button.btn-success {
+  --bg-color: var(--color-success);
+  --fg-color: white;
+}
+
+.btn-success:hover {
+  --bg-color: white;
+  --fg-color: var(--color-success);
+}
+
+button.btn-danger {
+  --bg-color: var(--color-danger);
+  --fg-color: white;
+}
+
+.btn-danger:hover {
+  --bg-color: white;
+  --fg-color: var(--color-danger);
+}
+
+button.btn-warning {
+  --bg-color: var(--color-warning);
+  --fg-color: var(--color-dark);
+}
+
+.btn-warning:hover {
+  --bg-color: var(--color-dark);
+  --fg-color: var(--color-warning);
+}
+
+button.btn-info {
+  --bg-color: white;
+  --fg-color: var(--color-info);
+}
+
+.btn-info:hover {
+  --bg-color: var(--color-info);
+  --fg-color: white;
+}
+
+button.btn-light {
+  --bg-color: var(--color-light);
+  --fg-color: var(--color-dark);
+}
+
+.btn-light:hover {
+  --bg-color: var(--color-dark);
+  --fg-color: var(--color-light);
+}
+
+button.btn-dark {
+  --bg-color: var(--color-dark);
+  --fg-color: white;
+}
+
+.btn-dark:hover {
+  --bg-color: var(--color-light);
+  --fg-color: var(--color-dark);
+}
+
+button.btn-link {
+  --bg-color: white;
+  --fg-color: rgb(1, 99, 131);
+}
+
+.btn-link:hover {
+  --bg-color: var(--color-info);
+  color: white;
+}
+
+button.btn-small {
+  padding: 3px 12px;
+}
+
+button.btn-medium {
+  padding: 0.35em 0.65em;
+}
+
+button.btn-big {
+  padding: 8px 24px;
+}
+
+/*--------------------- Links -------------------*/
+a {
+  text-decoration: underline;
+  color: #51c6ed;
+}
+
+a:visited {
+  color: #7d0183;
+}
+
+a:hover {
+  color: #51c6ed;
+}
+
+/*--------------------- Forms -------------------*/
+.forms-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+textarea {
+  border: 2px solid #1c3535;
+  padding: 1em;
+  font-size: 1em;
+  border-radius: 15px;
+  outline: none !important;
+  transition: 400ms;
+  box-shadow: none;
+  font-family: var(--font-family);
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus,
+textarea:focus {
+  border-color: tomato;
+}
+
+input[type=submit] {
+  align-self: flex-end;
+}
+
+label {
+  margin: 0.5em;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.comment-text {
+  margin-top: 1em;
+}
+
+/*--------------------- Navbar -------------------*/
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-wrap: wrap;
+  background-color: var(--color-nav-footer);
+  color: white;
+  padding: 1em;
+  position: sticky;
+}
+
+.navbar > ul {
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+  list-style: none;
+}
+
+.navbar > ul > li {
+  padding: 0.25em;
+}
+
+.navbar > ul > li > a {
+  text-decoration: underline;
+  color: white;
+}
+
+.navbar > ul > li > a:hover {
+  color: var(--color-info);
+}
+
+.navbar > ul > li > h1.title {
+  margin: 0 0.5em 0 0;
+}
+
+.navbar-two {
+  justify-content: space-between;
+}
+
+.navbar-three {
+  justify-content: space-evenly;
+}
+
+/*--------------------- Footer -------------------*/
+div.footer {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  background-color: var(--color-nav-footer);
+  margin: 0;
+  color: white;
+  padding: 1em;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+div.footer > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex: 1;
+}
+
+div.footer > ul > li {
+  margin: 0.5em;
+}
+
+div.footer > ul > li > h3 {
+  margin: 0;
+}
+
+div.footer > ul > li > a {
+  padding-top: 1em 1em 0 1em;
+  color: white;
+}
+
+div.footer > ul > li > a:hover {
+  color: var(--color-info);
+}
+
+/*--------------------- Components -------------------*/
+.components {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+/*--------------------- Card -------------------*/
+.card-style {
+  margin-bottom: 3em;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.card-header {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-md-light);
+  border-top: var(--border-style);
+  border-right: var(--border-style);
+  border-bottom: none;
+  border-left: var(--border-style);
+  padding: 0.5em 1em;
+  margin: 0;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-md-light);
+  border-top: none;
+  border-right: var(--border-style);
+  border-bottom: var(--border-style);
+  border-left: var(--border-style);
+  padding: 0.5em 1em;
+  margin: 0;
+}
+
+.card-img-top {
+  height: 180px;
+  width: 286px;
+  background-color: #8a8a8a;
+  color: white;
+  border-top: var(--border-style);
+  border-right: var(--border-style);
+  border-bottom: none;
+  border-left: var(--border-style);
+}
+
+.card-body {
+  display: flex;
+  padding: 0.5em 0.25em;
+  border-top: none;
+  border-right: var(--border-style);
+  border-bottom: var(--border-style);
+  border-left: var(--border-style);
+}
+
+.card-body > h5.card-title {
+  margin: 0;
+}
+
+/*--------------------- Swatches -------------------*/
+.swatch-0 {
+  background-color: #df2020;
+}
+
+.swatch-1 {
+  background-color: #20df58;
+}
+
+.swatch-2 {
+  background-color: #8f20df;
+}
+
+.swatch-3 {
+  background-color: #dfc720;
+}
+
+.swatch-4 {
+  background-color: #20bfdf;
+}
+
+.swatch-5 {
+  background-color: #df2087;
+}
+
+.swatch-6 {
+  background-color: #50df20;
+}
+
+.swatch-7 {
+  background-color: #2820df;
+}
+
+.swatch-8 {
+  background-color: #df6020;
+}
+
+.swatch-9 {
+  background-color: #20df98;
+}
+
+.swatch-10 {
+  background-color: #cf20df;
+}
+
+.swatch-11 {
+  background-color: #b7df20;
+}
+
+.swatch-12 {
+  background-color: #207fdf;
+}
+
+.swatch-13 {
+  background-color: #df2047;
+}
+
+.swatch-14 {
+  background-color: #20df30;
+}
+
+.swatch-15 {
+  background-color: #6820df;
+}
+
+.swatch-16 {
+  background-color: #dfa020;
+}
+
+.swatch-17 {
+  background-color: #20dfd8;
+}
+
+.swatch-18 {
+  background-color: #df20af;
+}
+
+.swatch-19 {
+  background-color: #77df20;
+}
+
+.swatch-20 {
+  background-color: #203fdf;
+}
+
+.swatch-21 {
+  background-color: #df3820;
+}
+
+.swatch-22 {
+  background-color: #20df70;
+}
+
+.swatch-23 {
+  background-color: #a820df;
+}
+
+.swatch-24 {
+  background-color: #dfdf20;
+}
+
+.swatch-25 {
+  background-color: #20a7df;
+}
+
+.swatch-26 {
+  background-color: #df206f;
+}
+
+.swatch-27 {
+  background-color: #37df20;
+}
+
+.swatch-28 {
+  background-color: #4020df;
+}
+
+.swatch-29 {
+  background-color: #df7820;
+}
+
+.swatch-30 {
+  background-color: #20dfb0;
+}
+
+.swatch-31 {
+  background-color: #df20d6;
+}
+
+.swatch-32 {
+  background-color: #9fdf20;
+}
+
+.swatch-33 {
+  background-color: #2067df;
+}
+
+.swatch-34 {
+  background-color: #df202f;
+}
+
+.swatch-35 {
+  background-color: #20df49;
+}
+
+.swatch-36 {
+  background-color: #8020df;
+}
+
+.swatch-37 {
+  background-color: #dfb820;
+}
+
+.swatch-38 {
+  background-color: #20cedf;
+}
+
+.swatch-39 {
+  background-color: #df2096;
+}
+
+.swatch-40 {
+  background-color: #5fdf20;
+}
+
+.swatch-41 {
+  background-color: #2027df;
+}
+
+.swatch-42 {
+  background-color: #df5120;
+}
+
+.swatch-43 {
+  background-color: #20df89;
+}
+
+.swatch-44 {
+  background-color: #c020df;
+}
+
+.swatch-45 {
+  background-color: #c6df20;
+}
+
+.swatch-46 {
+  background-color: #208edf;
+}
+
+.swatch-47 {
+  background-color: #df2056;
+}
+
+.swatch-48 {
+  background-color: #20df21;
+}
+
+.swatch-49 {
+  background-color: #5920df;
+}
+
+.swatch-50 {
+  background-color: #df9120;
+}
+
+.swatch-51 {
+  background-color: #20dfc9;
+}
+
+.swatch-52 {
+  background-color: #df20be;
+}
+
+.swatch-53 {
+  background-color: #86df20;
+}
+
+.swatch-54 {
+  background-color: #204edf;
+}
+
+.swatch-55 {
+  background-color: #df2920;
+}
+
+.swatch-56 {
+  background-color: #20df61;
+}
+
+.swatch-57 {
+  background-color: #9920df;
+}
+
+.swatch-58 {
+  background-color: #dfd120;
+}
+
+.swatch-59 {
+  background-color: #20b6df;
+}
+
+.swatch-60 {
+  background-color: #df207e;
+}
+
+.swatch-61 {
+  background-color: #46df20;
+}
+
+.swatch-62 {
+  background-color: #3120df;
+}
+
+.swatch-63 {
+  background-color: #df6920;
+}
+
+.swatch-64 {
+  background-color: #20dfa1;
+}
+
+.swatch-65 {
+  background-color: #d920df;
+}
+
+.swatch-66 {
+  background-color: #aedf20;
+}
+
+.swatch-67 {
+  background-color: #2076df;
+}
+
+.swatch-68 {
+  background-color: #df203e;
+}
+
+.swatch-69 {
+  background-color: #20df3a;
+}
+
+.swatch-70 {
+  background-color: #7120df;
+}
+
+.swatch-71 {
+  background-color: #dfa920;
+}
+
+.swatch-72 {
+  background-color: #20dddf;
+}
+
+.swatch-73 {
+  background-color: #df20a5;
+}
+
+.swatch-74 {
+  background-color: #6edf20;
+}
+
+.swatch-75 {
+  background-color: #2036df;
+}
+
+.swatch-76 {
+  background-color: #df4220;
+}
+
+.swatch-77 {
+  background-color: #20df79;
+}
+
+.swatch-78 {
+  background-color: #b120df;
+}
+
+.swatch-79 {
+  background-color: #d5df20;
+}
+
+.swatch-80 {
+  background-color: #209ddf;
+}
+
+.swatch-81 {
+  background-color: #df2066;
+}
+
+.swatch-82 {
+  background-color: #2edf20;
+}
+
+.swatch-83 {
+  background-color: #4a20df;
+}
+
+.swatch-84 {
+  background-color: #df8220;
+}
+
+.swatch-85 {
+  background-color: #20dfb9;
+}
+
+.swatch-86 {
+  background-color: #df20cd;
+}
+
+.swatch-87 {
+  background-color: #95df20;
+}
+
+.swatch-88 {
+  background-color: #205ddf;
+}
+
+.swatch-89 {
+  background-color: #df2026;
+}
+
+.swatch-90 {
+  background-color: #20df52;
+}
+
+.swatch-91 {
+  background-color: #8a20df;
+}
+
+.swatch-92 {
+  background-color: #dfc220;
+}
+
+.swatch-93 {
+  background-color: #20c5df;
+}
+
+.swatch-94 {
+  background-color: #df208d;
+}
+
+.swatch-95 {
+  background-color: #55df20;
+}
+
+.swatch-96 {
+  background-color: #2220df;
+}
+
+.swatch-97 {
+  background-color: #df5a20;
+}
+
+.swatch-98 {
+  background-color: #20df92;
+}
+
+.swatch-99 {
+  background-color: #ca20df;
+}
+
+.swatch-100 {
+  background-color: #bddf20;
+}
+
+/*# sourceMappingURL=shippd.css.map */
+
+/*# sourceMappingURL=shippd.css.map */

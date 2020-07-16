@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Final</title>
+        <link rel='stylesheet' href="shippd.css">
+	</head>
+	<body>
+
+			<!-- navbar - Style the navbar -->
+		<div id="nav">
+      <div class="navbar">
+          <ul>
+              <li><a href="#">Color.com</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#popular">Popular</a></li>
+              <li><a href="#swatches">Swatches</a></li>
+              <li><a href="#cart">Order</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#component">Web Component</a></li>
+
+          </ul>
+      </div>
+    </div>
+		<!-- Base Styles - Set the base styles for the page -->
+
+		<main>
+
+
+			<!-- banner -->
+			<section style="margin-top: 1em;">
+        <ticker-tape animation-duration= '20s'>
+          <h1>...Color.com is AWESOME...</h1>
+        </ticker-tape>
+			</section>
+
+
+			<!-- section about - -->
+			<section id="about" class="about">
+				<header>
+					<h1>What is color?</h1>
+				</header>
+				<p><strong>Color</strong> (American English), or colour (Commonwealth English), is the characteristic of visual perception described through color categories, with names such as red, orange, yellow, green, blue, or purple. This perception of color derives from the stimulation of photoreceptor cells (in particular cone cells in the human eye and other vertebrate eyes) by electromagnetic radiation (in the visible spectrum in the case of humans).</p>
+				<p>Color is really important for making great <abbr title="Cascading Style Sheets">CSS</abbr> styles. <a href="#">Color.com is the most amazing place to get your colors.</a></p>
+			</section>
+
+
+
+			<!-- Section Color Cards - This section contains three cards Style these -->
+			<section id="popular" class='cards'>
+
+				<div class="card" style="margin: 0.5em; width: 18rem;">
+                    <img class='card-img-top' src="images/color-pencils.jpg" width='300' height='200'>
+                    <div class='card-body'>
+                        <p>Colored Pencils show the variety of colors available</p>
+                    </div>
+				</div>
+
+				<div class="card" style="margin: 0.5em; width: 18rem;">
+                    <img class='card-img-top' src="images/color-dust.jpg" width='300' height='200'>
+                    <div class='card-body'>
+                        <p>Color in dust is a beautiful sight to behold. Dust
+                    colors are fun indeed, especially on Wednesdays. </p>
+                    </div>
+				</div>
+
+				<div class="card" style="margin: 0.5em; width: 18rem;"  s>
+                    <img class='card-img-top' src="images/orange.jpg" width='300' height='200'>
+                    <div class='card-body'>
+                        <p>Colors can appear different depending on their surrounding colors and shapes. The two small squares have exactly the same color, but the right one looks slightly darker, the Chubb illusion.</p>
+                    </div>
+        </div>
+
+			</section>
+
+
+
+			<!-- Section Color Swatches - This section contains -->
+			<section id="swatches">
+				<header>
+					<h1>Colors</h1>
+					<p>At color.com we offer a range of high quality colors.</p>
+				</header>
+				<div class="swatches">
+
+				</div>
+			</section>
+
+			<section id="cart" class="cart">
+				<header>
+					<h1>Cart</h1>
+				</header>
+
+				<ul id="items">
+					<!-- Items here -->
+				</ul>
+
+				<div id="total">
+                    <!-- Total here -->
+				</div>
+			</section>
+
+
+
+			<!-- Contact form -->
+			<section id="contact">
+				<header>
+					<h1>Contact</h1>
+				</header>
+				<div>
+					<form>
+						<label>
+							Name
+							<input type="text">
+						</label>
+						<label>
+							Subject
+							<input type="text">
+						</label>
+						<label>
+							Message
+							<textarea></textarea>
+						</label>
+						<button>Submit</button>
+					</form>
+				</div>
+			</section>
+
+
+
+			<!-- Web Component -->
+			<section id="component" class="component">
+				<ticker-tape>...Color.com is AWESOME...</ticker-tape>
+			</section>
+
+		</main>
+
+		<style>
+
+      main {
+        margin: 0 3em;
+      }
+
+      .about {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+      }
+
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-evenly;
+      }
+
+			.swatch {
+				width: 100px;
+				height: 100px;
+				margin: 2px;
+				border: 1px solid;
+      }
+
+      .swatches {
+				display: flex;
+				flex-wrap: wrap;
+      }
+
+      .component {
+        margin: 2em 0;
+      }
+
+		</style>
+
+
+		<script>
+
+
+
+
+			// make some swatches
+			const swatchCount = 100
+			for (let i = 0; i < swatchCount; i += 1) {
+				const swatch = `<div class="swatch swatch-${i} add-to-cart"  data-color="Color ${i}" data-price="${(Math.random() * 10).toFixed(2)}"></div>`
+				document.querySelector('.swatches').innerHTML += swatch
+			}
+
+      const addForm = document.getElementById('add-form')
+      const inputName = document.getElementById('name')
+      const inputPrice = document.getElementById('price')
+      const itemsList = document.getElementById('items')
+      const divTotal = document.getElementById('total')
+
+			function handleClicks(e) {
+				if (e.target.matches('.swatch')) {
+					const color = e.target.dataset.color
+					const price = e.target.dataset.price
+					addToCart(color, price)
+				}
+			}
+
+			document.querySelector('body').addEventListener('click', handleClicks)
+
+      const cart = []
+
+      document.querySelector('body').addEventListener('submit', function(e){
+        e.preventDefault()
+        const name = inputName.value
+        const price = inputPrice.value
+        addToCart(name, price)
+        showCart()
+      })
+
+			document.querySelector('body').addEventListener('click', function(e) {
+        if (e.target && e.target.classList.contains('remove')) {
+          console.log(e.target.dataset.name)
+          removeFromCart(e.target.dataset.name)
+        } else if (e.target && e.target.classList.contains('add-one')) {
+          addToCart(e.target.dataset.name)
+        } else if (e.target && e.target.classList.contains('remove-one')) {
+          removeFromCart(e.target.dataset.name, 1)
+        }
+			})
+
+      document.querySelector('body').addEventListener('input', function(e) {
+        if (e.target.matches('.update')) {
+          const qty = parseInt(e.target.value)
+          const name = e.target.dataset.name
+          updateCart(name, qty)
+        }
+      })
+
+      function addToCart(name, price) {
+        for (let i = 0; i < cart.length; i += 1) {
+          if (cart[i].name === name) {
+            cart[i].qty += 1
+            showCart()
+            return true
+          }
+        }
+        cart.push({ name, price, qty: 1})
+        showCart()
+      }
+
+      function removeFromCart(name, qty = 0) {
+        console.log(name, qty)
+        for (let i = 0; i < cart.length; i += 1) {
+          if (cart[i].name === name) {
+            if (qty) {
+              let newQty = cart[i].qty - qty
+              if (newQty > 0) {
+                cart[i].qty = newQty
+              } else {
+                cart.splice(i, 1)
+              }
+            } else {
+              cart.splice(i, 1)
+            }
+          }
+        }
+
+        showCart()
+      }
+
+      function showCart() {
+        let str = ''
+        for (let i = 0; i < cart.length; i += 1) {
+          str += `<li>
+            <span>
+              ${cart[i].name}
+							<span>${cart[i].price}</span> each
+              x <span>${cart[i].qty}</span> =
+							<span>${(cart[i].qty * cart[i].price).toFixed(2)}<span>
+            </span>
+            <span>
+              <button class="remove delete-btn" data-name="${cart[i].name}">remove</button>
+              <button class="add-one go-btn" data-name="${cart[i].name}"> + </button>
+              <button class="remove-one delete-btn" data-name="${cart[i].name}"> - </button>
+              <input class="update" data-name="${cart[i].name}" type="number" value="${cart[i].qty}">
+            </span>
+          </li>`
+        }
+        itemsList.innerHTML = str
+        divTotal.innerHTML = getTotal()
+      }
+
+      function getTotal() {
+        let total = 0
+        for (let i = 0; i < cart.length; i += 1) {
+          total += cart[i].price * cart[i].qty
+        }
+        return total.toFixed(2)
+      }
+
+      function updateCart(name, qty) {
+        for (let i = 0; i < cart.length; i += 1) {
+          if (cart[i].name === name) {
+            cart[i].qty = qty
+            showCart()
+            return true
+          }
+        }
+        return false
+      }
+
+      showCart()
+      getTotal()
+
+    </script>
+    <script src="./ticker-tape/ticker-tape.js"></script>
+
+	</body>
+</html>
